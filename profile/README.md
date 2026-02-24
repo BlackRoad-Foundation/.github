@@ -1,18 +1,38 @@
 <div align="center">
-  <h1>🏛️ BlackRoad Foundation</h1>
-  <p><strong>CRM. Project management. Analytics. Self-hosted.</strong></p>
+
+# 🏛️ BlackRoad Foundation
+
+### Business Tools Reimagined
+
+CRM, project management, analytics, and enterprise workflow tools built for AI-first organizations.
+
+[![Platform](https://img.shields.io/badge/Platform-blackroad.io-FF1D6C?style=for-the-badge)](https://blackroad.io)
+[![Agents](https://img.shields.io/badge/AI_Agents-30%2C000-9C27B0?style=for-the-badge)](https://agents.blackroad.io)
+[![Cost](https://img.shields.io/badge/AI_Cost-%240-F5A623?style=for-the-badge)](https://blackroad.io)
+
 </div>
 
-## What Lives Here
+---
 
-Business tooling — CRM, project management, and analytics infrastructure. Open-source alternatives to enterprise SaaS, self-hosted on BlackRoad infrastructure.
+## 🎯 Focus Areas
 
-| Category | Tools |
-|----------|-------|
-| CRM | Salesforce (LWC), HubSpot, SAP, NetSuite adapters |
-| Project Management | Plane, Focalboard, Taiga |
-| Analytics | Apache Superset, Grafana |
-| Wiki | Wiki.js, Outline |
+`CRM` • `Project Management` • `Analytics` • `ERP`
+
+## 🔗 Links
+
+| | |
+|---|---|
+| 🌐 **Website** | [blackroad-foundation.github.io](https://blackroad-foundation.github.io) |
+| 📖 **Docs** | [docs.blackroad.io](https://docs.blackroad.io) |
+| 💬 **Status** | [status.blackroad.io](https://status.blackroad.io) |
+| 🤖 **Agents** | [agents.blackroad.io](https://agents.blackroad.io) |
 
 ---
+
+<div align="center">
+
+**Part of [BlackRoad OS](https://blackroad.io)** — 30,000 AI Agents • 17 Organizations • 1,800+ Repos • $0 AI Cost
+
 *© BlackRoad OS, Inc. All rights reserved.*
+
+</div>
