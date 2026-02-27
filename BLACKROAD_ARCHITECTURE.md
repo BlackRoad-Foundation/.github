@@ -38,6 +38,30 @@ A Raspberry Pi cluster running specialized roles:
 
 Plus dev machines (Mac = "cecilia", iPhone = "arcadia") and edge devices (ESP32s, LoRa modules for future deployment).
 
+### Local Inference via Raspberry Pi 5 Clusters
+
+For rate limit mitigation and data sovereignty, inference is offloaded to local Pi clusters:
+
+| Component | Technical Specification | Functional Role |
+|-----------|------------------------|-----------------|
+| Compute Node | Raspberry Pi 5 (8GB LPDDR4X) | General Purpose Inference and Control |
+| Inference Accelerator | Raspberry Pi AI Hat 2 (40 TOPS) | Dedicated INT8 LLM Processing |
+| Network Layer | Gigabit Ethernet with PoE+ HAT | Synchronized Node Communication |
+| Storage | NVMe SSD (M.2 Interface, 256GB+) | Model Weights and Agent Memory |
+| Software Stack | LiteLLM Proxy / Ollama / llama.cpp | API Hosting and Load Balancing |
+
+The Raspberry Pi AI Hat 2 (Hailo 10H NPU) enables efficient processing of quantized GGUF models, achieving 5–15 tokens per second in clustered configurations using OpenMPI for parallelization.
+
+#### Proxy Configuration for Copilot Offloading
+
+To bypass external rate limits, the system environment overrides the default GitHub Copilot endpoints:
+
+```bash
+export GH_COPILOT_OVERRIDE_PROXY_URL="http://raspberrypi.local:4000"
+```
+
+The LiteLLM proxy translates requests into an OpenAI-compatible format and distributes them across the cluster using round-robin load balancing. This ensures proprietary codebase context never leaves the local network.
+
 ---
 
 ## The Control Plane
@@ -113,27 +137,132 @@ Ceiling: everyone who ever talks to AI.
 
 ---
 
-## Organization Structure
+## GitHub Enterprise Organizational Matrix
 
-BlackRoad operates across 15 specialized GitHub organizations:
+The enterprise is hosted at https://github.com/enterprises/blackroad-os, managing 15 organizations with governance and security boundaries. GitHub Apps are used for cross-organization repository access (preferred over PATs for their short-lived, granular permissions).
 
-| Organization | Focus |
-|--------------|-------|
-| **BlackRoad-OS** | Core operating system, operator, infrastructure |
-| **BlackRoad-AI** | AI models, routing, inference |
-| **BlackRoad-Cloud** | Cloud services, deployment |
-| **BlackRoad-Labs** | Research, experiments |
-| **BlackRoad-Security** | Security tools, auditing |
-| **BlackRoad-Foundation** | CRM, business tools |
-| **BlackRoad-Media** | Content, publishing |
-| **BlackRoad-Hardware** | IoT, ESP32, Pi projects |
-| **BlackRoad-Education** | Learning, documentation |
-| **BlackRoad-Gov** | Governance, voting |
-| **BlackRoad-Interactive** | Games, 3D, metaverse |
-| **BlackRoad-Archive** | Storage, backup |
-| **BlackRoad-Studio** | Design, creative tools |
-| **BlackRoad-Ventures** | Business, commerce |
-| **Blackbox-Enterprises** | Enterprise solutions |
+| Organization | Primary Responsibility | Repository Examples |
+|--------------|----------------------|---------------------|
+| **Blackbox-Enterprises** | Corporate and Enterprise Integrations | blackbox-api, enterprise-bridge |
+| **BlackRoad-AI** | Core LLM and Reasoning Engine Development | lucidia-core, blackroad-reasoning |
+| **BlackRoad-Archive** | Long-term Data Persistence and Documentation | blackroad-os-docs, history-ledger |
+| **BlackRoad-Cloud** | Infrastructure as Code and Orchestration | cloud-orchestrator, railway-deploy |
+| **BlackRoad-Education** | Onboarding and Documentation Frameworks | br-help, onboarding-portal |
+| **BlackRoad-Foundation** | Governance and Protocol Standards | protocol-specs, governance-rules |
+| **BlackRoad-Gov** | Regulatory Compliance and Policy Enforcement | compliance-audit, regulatory-tools |
+| **BlackRoad-Hardware** | SBC and IoT Device Management | blackroad-agent-os, pi-firmware |
+| **BlackRoad-Interactive** | User Interface and Frontend Systems | blackroad-os-web, interactive-ui |
+| **BlackRoad-Labs** | Experimental R&D and Prototyping | experimental-agents, quantum-lab |
+| **BlackRoad-Media** | Content Delivery and Public Relations | media-engine, pr-automation |
+| **BlackRoad-OS** | Core System Kernel and CLI Development | blackroad-cli, kernel-source |
+| **BlackRoad-Security** | Auditing, Cryptography, and Security | security-audit, hash-witnessing |
+| **BlackRoad-Studio** | Production Assets and Creative Tooling | lucidia-studio, creative-assets |
+| **BlackRoad-Ventures** | Strategic Growth and Ecosystem Funding | tokenomics-api, venture-cap |
+
+---
+
+## Domain Architecture and Cloudflare Integration
+
+All domains are orchestrated via Cloudflare. Cloudflare Tunnels securely expose local Raspberry Pi nodes to the public internet.
+
+| Domain | Intended Use Case | Associated Organization |
+|--------|-------------------|------------------------|
+| blackboxprogramming.io | Developer Education and APIs | Blackbox-Enterprises |
+| blackroad.io | Core Project Landing Page | BlackRoad-OS |
+| blackroad.company | Corporate and HR Operations | BlackRoad-Ventures |
+| blackroad.me | Personal Agent Identity Nodes | BlackRoad-AI |
+| blackroad.network | Distributed Network Interface | BlackRoad-Cloud |
+| blackroad.systems | Infrastructure and System Ops | BlackRoad-Cloud |
+| blackroadai.com | AI Research and API Hosting | BlackRoad-AI |
+| blackroadinc.us | US-based Governance and Legal | BlackRoad-Gov |
+| blackroadqi.com | Quantum Intelligence Research | BlackRoad-Labs |
+| blackroadquantum.com | Primary Quantum Lab Interface | BlackRoad-Labs |
+| lucidia.earth | Memory Layer and Personal AI | BlackRoad-AI |
+| lucidia.studio | Creative and Asset Management | BlackRoad-Studio |
+| roadchain.io | Blockchain and Witnessing Ledger | BlackRoad-Security |
+| roadcoin.io | Tokenomics and Financial Interface | BlackRoad-Ventures |
+
+---
+
+## The @blackroad-agents Deca-Layered Scaffold
+
+Every task triggered by the `@blackroad-agents` command follows a ten-step scaffolding process:
+
+1. **Initial Reviewer** — A Layer 6 (Lucidia Core) agent reviews the incoming request for clarity, security compliance, and resource availability, generating a preliminary execution plan.
+2. **Task Distribution to Organization** — The task is routed to one of the 15 BlackRoad organizations based on functional domain (hardware, security, cloud, etc.).
+3. **Task Distribution to Team** — Within the selected organization, the task is refined and distributed to a specific team. Human-in-the-loop (HITL) approval pauses execution for high-risk operations.
+4. **Task Update to Project** — The task is recorded in a GitHub Project board and synchronized with Salesforce for enterprise-level audit trails.
+5. **Task Distribution to Agent** — A specialized autonomous agent is assigned (e.g., "fastapi-coder-agent" or "doctl-infrastructure-agent"), following the Planner-Executor-Reflector design pattern.
+6. **Task Distribution to Repository** — The agent identifies the target repository and creates a new branch following GitHub Flow branching strategy.
+7. **Task Distribution to Device** — If the task requires physical execution (firmware updates, droplet rebuilds), it is routed to the device layer for local hardware offloading.
+8. **Task Distribution to Drive** — Artifacts (logs, reports, documentation) are distributed to Google Drive via Service Account (GSA) pattern.
+9. **Task Distribution to Cloudflare** — Network configuration changes (new tunnels, DNS record modifications) are executed to ensure services are immediately reachable and secured.
+10. **Task Distribution to Website Editor** — The presentation layer is updated via AI-driven website editors or headless CMS, enabling autonomous generation of landing pages, blog posts, or documentation.
+
+---
+
+## The @BlackRoadBot Routing Matrix
+
+When a user comments `@BlackRoadBot` on a GitHub issue or PR, the bot identifies target platforms based on natural language intent:
+
+### Salesforce CRM Integration
+- **Task Creation:** Apex middleware triggers creation of Case or Custom Task objects in Salesforce.
+- **Data Activation:** Salesforce Data Cloud ingests telemetry from GitHub webhooks for real-time analytics.
+- **Webhooks:** GitHub triggers are wired directly to Salesforce endpoints via salesforce-webhooks.
+
+### Hugging Face and Ollama Reasoning
+- **Hugging Face Inference Endpoints:** Programmatic deployment of dedicated model endpoints for high-compute tasks.
+- **Ollama Integration:** Routine tasks use the Ollama API exposed via Cloudflare Tunnel (e.g., Llama-3.2-3B-Instruct-GGUF).
+
+### DigitalOcean and Railway Infrastructure
+- **DigitalOcean Droplets:** Managed via `doctl` CLI in GitHub Actions (rebuild, scale, provision).
+- **Railway Deployments:** Ephemeral test environments for feature branches via Railway CLI.
+
+---
+
+## BlackRoad CLI v3 Layered Architecture
+
+The CLI loads eight distinct layers of functionality:
+
+| Layer | Name | Responsibility |
+|-------|------|----------------|
+| 3 | Agents/System | Autonomous agent lifecycle management and system-level processes |
+| 4 | Deploy/Orchestration | Infrastructure provisioning across cloud and local nodes |
+| 5 | Branches/Environments | Ephemeral environment management and git-branching logic |
+| 6 | Lucidia Core/Memory | Long-term context storage, state transitions, and simulation data |
+| 7 | Orchestration | High-level task distribution powering the @blackroad-agents scaffold |
+| 8 | Network/API | REST and GraphQL endpoints for the @BlackRoadBot matrix |
+
+A failure in one layer (e.g., Layer 8 Network) does not affect persistence in another (e.g., Layer 6 Memory).
+
+---
+
+## roadchain Witnessing Architecture
+
+Unlike traditional blockchains focused on consensus-based proof, roadchain functions as a "witnessing" architecture:
+
+- Every state transition (agent code commits, bot task routing) is hashed using SHA-256 and appended to a non-terminating ledger.
+- Creates an immutable record of "what happened" rather than "what is true."
+
+---
+
+## Rate Limit Mitigation Strategies
+
+| Provider | Observed Limit | Mitigation Protocol |
+|----------|---------------|---------------------|
+| GitHub Copilot | RPM / Token Exhaustion | Redirect to local Raspberry Pi LiteLLM proxy |
+| Hugging Face Hub | IP-based Rate Limit | Rotate HF_TOKEN or use authenticated SSH keys |
+| Google Drive | Individual User Quota | Use Shared Drives with GSA "Content Manager" role |
+| DigitalOcean API | Concurrent Build Limits | Queue tasks via Layer 7 Orchestration |
+| Salesforce API | Daily API Request Cap | Batch updates via Data Cloud Streaming Transforms |
+
+If a task fails at any layer, the system creates a GitHub Issue with detailed logs from Layer 6 (Lucidia Core). A "Reflect and Retry" plugin assesses the failure.
+
+---
+
+## Future Scaling: 30k Agents
+
+The blackroad-30k-agents repository aims to orchestrate 30,000 autonomous agents using Kubernetes auto-scaling and self-healing, transitioning from Pi clusters to larger ARM-based data centers.
 
 ---
 
@@ -157,5 +286,5 @@ This is the Operator pattern in miniature. Start with physics, extend to every d
 
 ---
 
-*Last Updated: 2026-01-12*
+*Last Updated: 2026-02-27*
 *BlackRoad OS, Inc. - Proprietary and Confidential*
