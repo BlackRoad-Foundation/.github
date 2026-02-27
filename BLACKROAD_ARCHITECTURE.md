@@ -222,7 +222,7 @@ When a user comments `@BlackRoadBot` on a GitHub issue or PR, the bot identifies
 
 ## BlackRoad CLI v3 Layered Architecture
 
-The CLI loads eight distinct layers of functionality:
+The CLI is organized into layers of functionality. Layers 3–8 are documented below (layers 1–2 handle low-level hardware and boot processes):
 
 | Layer | Name | Responsibility |
 |-------|------|----------------|
