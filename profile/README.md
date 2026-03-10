@@ -1,38 +1,39 @@
 <div align="center">
 
-# 🏛️ BlackRoad Foundation
+# BlackRoad Foundation
 
-### Business Tools Reimagined
+**Business tools — CRM, project management, HR, analytics, event management.**
 
-CRM, project management, analytics, and enterprise workflow tools built for AI-first organizations.
-
-[![Platform](https://img.shields.io/badge/Platform-blackroad.io-FF1D6C?style=for-the-badge)](https://blackroad.io)
-[![Agents](https://img.shields.io/badge/AI_Agents-30%2C000-9C27B0?style=for-the-badge)](https://agents.blackroad.io)
-[![Cost](https://img.shields.io/badge/AI_Cost-%240-F5A623?style=for-the-badge)](https://blackroad.io)
+[![Website](https://img.shields.io/badge/blackroad--foundation.github.io-000?style=flat-square&logo=github)](https://blackroad-foundation.github.io)
 
 </div>
 
 ---
 
-## 🎯 Focus Areas
+## Repositories
 
-`CRM` • `Project Management` • `Analytics` • `ERP`
-
-## 🔗 Links
-
-| | |
+| Repository | Description |
 |---|---|
-| 🌐 **Website** | [blackroad-foundation.github.io](https://blackroad-foundation.github.io) |
-| 📖 **Docs** | [docs.blackroad.io](https://docs.blackroad.io) |
-| 💬 **Status** | [status.blackroad.io](https://status.blackroad.io) |
-| 🤖 **Agents** | [agents.blackroad.io](https://agents.blackroad.io) |
+| [governance](https://github.com/BlackRoad-Foundation/governance) | Governance documents and decision-making processes |
+
+<details>
+<summary>Archived</summary>
+
+| Repository | Description |
+|---|---|
+| [blackroad-crm](https://github.com/BlackRoad-Foundation/blackroad-crm) | Customer relationship management system |
+| [blackroad-crm-core](https://github.com/BlackRoad-Foundation/blackroad-crm-core) | BlackRoad Foundation - blackroad crm core |
+| [blackroad-event-manager](https://github.com/BlackRoad-Foundation/blackroad-event-manager) | Event management and registration platform |
+| [blackroad-grant-tracker](https://github.com/BlackRoad-Foundation/blackroad-grant-tracker) | Grant application and funding tracker |
+| [blackroad-ticket-system](https://github.com/BlackRoad-Foundation/blackroad-ticket-system) | BlackRoad Foundation - blackroad ticket system |
+| [blackroad-donor-management](https://github.com/BlackRoad-Foundation/blackroad-donor-management) | Donor management and fundraising tracker |
+| [blackroad-analytics-dashboard](https://github.com/BlackRoad-Foundation/blackroad-analytics-dashboard) | BlackRoad Foundation - blackroad analytics dashboard |
+| [blackroad-hr-system](https://github.com/BlackRoad-Foundation/blackroad-hr-system) | HR and employee management platform |
+| [blackroad-project-management](https://github.com/BlackRoad-Foundation/blackroad-project-management) | BlackRoad Foundation - blackroad project management |
+| [community](https://github.com/BlackRoad-Foundation/community) | Community guidelines and engagement tools |
+
+</details>
 
 ---
 
-<div align="center">
-
-**Part of [BlackRoad OS](https://blackroad.io)** — 30,000 AI Agents • 17 Organizations • 1,800+ Repos • $0 AI Cost
-
-*© BlackRoad OS, Inc. All rights reserved.*
-
-</div>
+<sub>BlackRoad OS, Inc. — [blackroad.io](https://blackroad.io)</sub>
