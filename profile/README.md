@@ -1,39 +1,25 @@
-<div align="center">
-
 # BlackRoad Foundation
 
-**Business tools — CRM, project management, HR, analytics, event management.**
-
-[![Website](https://img.shields.io/badge/blackroad--foundation.github.io-000?style=flat-square&logo=github)](https://blackroad-foundation.github.io)
-
-</div>
+**A division of [BlackRoad OS, Inc.](https://github.com/BlackRoad-OS-Inc) — Proprietary Software**
 
 ---
 
-## Repositories
+## About
 
-| Repository | Description |
-|---|---|
-| [governance](https://github.com/BlackRoad-Foundation/governance) | Governance documents and decision-making processes |
+BlackRoad Foundation is the community and operations division of BlackRoad OS. BlackRoad Foundation handles CRM, events, grants, HR systems, and project management. The operational backbone that supports everything else.
 
-<details>
-<summary>Archived</summary>
+All repositories in this organization are proprietary to BlackRoad OS, Inc. Source code is publicly visible for transparency. Commercial use, forking, and redistribution are prohibited.
 
-| Repository | Description |
-|---|---|
-| [blackroad-crm](https://github.com/BlackRoad-Foundation/blackroad-crm) | Customer relationship management system |
-| [blackroad-crm-core](https://github.com/BlackRoad-Foundation/blackroad-crm-core) | BlackRoad Foundation - blackroad crm core |
-| [blackroad-event-manager](https://github.com/BlackRoad-Foundation/blackroad-event-manager) | Event management and registration platform |
-| [blackroad-grant-tracker](https://github.com/BlackRoad-Foundation/blackroad-grant-tracker) | Grant application and funding tracker |
-| [blackroad-ticket-system](https://github.com/BlackRoad-Foundation/blackroad-ticket-system) | BlackRoad Foundation - blackroad ticket system |
-| [blackroad-donor-management](https://github.com/BlackRoad-Foundation/blackroad-donor-management) | Donor management and fundraising tracker |
-| [blackroad-analytics-dashboard](https://github.com/BlackRoad-Foundation/blackroad-analytics-dashboard) | BlackRoad Foundation - blackroad analytics dashboard |
-| [blackroad-hr-system](https://github.com/BlackRoad-Foundation/blackroad-hr-system) | HR and employee management platform |
-| [blackroad-project-management](https://github.com/BlackRoad-Foundation/blackroad-project-management) | BlackRoad Foundation - blackroad project management |
-| [community](https://github.com/BlackRoad-Foundation/community) | Community guidelines and engagement tools |
+## Parent Organization
 
-</details>
+This division operates under [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc), the corporate root of the BlackRoad ecosystem. See the parent org for the full technology stack, product catalog, and organizational structure.
+
+## License
+
+Proprietary — BlackRoad OS, Inc. See individual repositories for license terms.
 
 ---
 
-<sub>BlackRoad OS, Inc. — [blackroad.io](https://blackroad.io)</sub>
+**BlackRoad OS — Pave Tomorrow.**
+
+*Copyright 2024-2026 BlackRoad OS, Inc. All Rights Reserved.*
