@@ -1,19 +1,16 @@
 # BlackRoad-Foundation
 
-**Community and events** — Part of the BlackRoad OS ecosystem.
+**BlackRoad Foundation — community, events, grants, project management. Pave Tomorrow.**
 
-> 18 orgs · 20 domains · 200 agents · Sovereign infrastructure
+> Remember the Road. Pave Tomorrow.
 
-18 public repositories | [blackroad.io](https://blackroad.io) | [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
+BlackRoad OS, Inc. — Delaware C-Corp, incorporated November 17, 2025.
 
-## Key Repositories
+21 public repositories | [blackroad.io](https://blackroad.io) | [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
 
-- [.github](https://github.com/BlackRoad-Foundation/.github) — Public good, community — downstream from BlackRoad-OS-Inc[0:60]
-- [blackroad-foundation.github.io](https://github.com/BlackRoad-Foundation/blackroad-foundation.github.io) — BlackRoad OS GitHub Pages[0:60]
-- [roadmap](https://github.com/BlackRoad-Foundation/roadmap) — RoadMap — Visual Project Planning[0:60]
-- [governance](https://github.com/BlackRoad-Foundation/governance) — Governance documents and decision-making processes[0:60]
-- [README](https://github.com/BlackRoad-Foundation/README) — BlackRoad OS — Internal README for BlackRoad-Foundation[0:60]
+18 orgs · 20 domains · 200 agents · 2,156 repos · Sovereign infrastructure
 
 ---
 
-Proprietary — BlackRoad OS, Inc. All rights reserved.
+Proprietary — BlackRoad OS, Inc. All rights reserved. Incorporated 2025.
+
