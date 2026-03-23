@@ -1,20 +1,19 @@
 # BlackRoad-Foundation
 
-**Open source foundation**
+**Community and events** — Part of the BlackRoad OS ecosystem.
 
-Part of [BlackRoad OS](https://blackroad.io) — sovereign infrastructure built from bare metal up.
+> 18 orgs · 20 domains · 200 agents · Sovereign infrastructure
+
+18 public repositories | [blackroad.io](https://blackroad.io) | [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
+
+## Key Repositories
+
+- [.github](https://github.com/BlackRoad-Foundation/.github) — Public good, community — downstream from BlackRoad-OS-Inc[0:60]
+- [blackroad-foundation.github.io](https://github.com/BlackRoad-Foundation/blackroad-foundation.github.io) — BlackRoad OS GitHub Pages[0:60]
+- [roadmap](https://github.com/BlackRoad-Foundation/roadmap) — RoadMap — Visual Project Planning[0:60]
+- [governance](https://github.com/BlackRoad-Foundation/governance) — Governance documents and decision-making processes[0:60]
+- [README](https://github.com/BlackRoad-Foundation/README) — BlackRoad OS — Internal README for BlackRoad-Foundation[0:60]
 
 ---
 
-| | |
-|---|---|
-| **Parent** | [BlackRoad OS, Inc.](https://github.com/BlackRoad-OS-Inc) |
-| **Website** | [blackroad.io](https://blackroad.io) |
-| **Search** | [search.blackroad.io](https://search.blackroad.io) |
-| **Org Page** | [blackroad-foundation.github.io](https://blackroad-foundation.github.io) |
-
----
-
-> Built by [Alexa Amundson](https://blackroad.me). Delaware C-Corp. Founded November 2025.
-> 
-> 23 orgs · 2,280+ repos · 29 languages · 7 nodes · 52 TOPS
+Proprietary — BlackRoad OS, Inc. All rights reserved.
